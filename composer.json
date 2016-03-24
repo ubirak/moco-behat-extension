@@ -1,0 +1,24 @@
+{
+    "name": "rezzza/moco-behat-extension",
+    "description": "Helper to use moco with behat",
+    "type": "behat-extension",
+    "license": "MIT",
+    "homepage": "https://github.com/rezzza/moco-behat-extension",
+    "authors": [
+        {
+            "name": "RezZza Team",
+            "email": "dev@verylastroom.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Rezzza\\MocoBehatExtension\\": "src/" }
+    },
+    "require": {
+        "php": ">=5.5.9",
+        "behat/behat": "~3.0"
+    },
+    "require-dev": {
+        "rezzza/rest-api-behat-extension": "^3.1",
+        "symfony/process": "^3.0"
+    }
+}

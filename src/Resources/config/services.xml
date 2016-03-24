@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<container xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://symfony.com/schema/dic/services"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="rezzza.moco.moco_writer" class="Rezzza\MocoBehatExtension\MocoWriter" public="false">
+            <argument>%rezzza.moco.json_file%</argument>
+        </service>
+
+        <service id="rezzza.moco.moco_writer_resolver" class="Rezzza\MocoBehatExtension\MocoWriterResolver" public="false">
+            <argument type="service" id="rezzza.moco.moco_writer" />
+            <tag name="context.argument_resolver" />
+        </service>
+    </services>
+</container>
