@@ -1,5 +1,7 @@
 # Moco Extension for Behat 3
 
+[![Build Status](https://travis-ci.org/rezzza/moco-behat-extension.svg?branch=master)](https://travis-ci.org/rezzza/moco-behat-extension)
+
 [Moco](https://github.com/dreamhead/moco) is a stub server we used to use in test env.
 
 Here is a small extension to make its usage more friendly.
