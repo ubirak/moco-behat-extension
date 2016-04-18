@@ -102,11 +102,6 @@ class FeatureContext implements Context
      */
     public function itShouldTerminateWithStatusAndContent($exitStatus, PyStringNode $string)
     {
-//         echo sprintf('%s/features/fixtures.yml', $this->workingDir);
-
-//         var_dump($this->moco->getOutput());
-//         var_dump($this->moco->getErrorOutput());
-// var_dump($this->getOutput());exit;
         if ('fail' === $exitStatus) {
             $this->asserter->variable($this->getExitCode())->isEqualTo(1);
         } elseif ('pass' === $exitStatus) {
