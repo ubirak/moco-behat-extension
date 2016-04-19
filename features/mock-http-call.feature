@@ -10,6 +10,8 @@ Feature: Mock HTTP call
                 extensions:
                     Rezzza\MocoBehatExtension\MocoExtension:
                         json_file: features/fixtures.yml
+                        hostname: 127.0.0.1
+                        port: 9999
                     Rezzza\RestApiBehatExtension\Extension:
                         rest:
                             base_url: http://127.0.0.1:9999
@@ -18,10 +20,8 @@ Feature: Mock HTTP call
                     default:
                         contexts:
                             - FeatureContext
-                            - Rezzza\RestApiBehatExtension\RestApiContext:
-                            - Rezzza\MocoBehatExtension\MocoContext:
-                                mocoIp: 127.0.0.1
-                                mocoPort: 9999
+                            - Rezzza\RestApiBehatExtension\RestApiContext
+                            - Rezzza\MocoBehatExtension\MocoContext
             """
         And a file named "features/bootstrap/FeatureContext.php" with:
             """

@@ -14,6 +14,8 @@ class MocoExtension implements Extension
     public function load(ContainerBuilder $container, array $config)
     {
         $container->setParameter('rezzza.moco.json_file', $config['json_file']);
+        $container->setParameter('rezzza.moco.port', $config['port']);
+        $container->setParameter('rezzza.moco.hostname', $config['hostname']);
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/Resources/config'));
         $loader->load('services.xml');
     }
@@ -29,6 +31,8 @@ class MocoExtension implements Extension
             ->addDefaultsIfNotSet()
             ->children()
                 ->scalarNode('json_file')->end()
+                ->scalarNode('hostname')->end()
+                ->scalarNode('port')->end()
             ->end()
         ;
     }
