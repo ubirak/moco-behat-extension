@@ -5,6 +5,8 @@
     <services>
         <service id="rezzza.moco.moco_writer" class="Rezzza\MocoBehatExtension\MocoWriter" public="false">
             <argument>%rezzza.moco.json_file%</argument>
+            <argument>%rezzza.moco.hostname%</argument>
+            <argument>%rezzza.moco.port%</argument>
         </service>
 
         <service id="rezzza.moco.moco_writer_resolver" class="Rezzza\MocoBehatExtension\MocoWriterResolver" public="false">

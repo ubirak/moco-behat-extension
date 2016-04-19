@@ -13,14 +13,14 @@ default:
     extensions:
         Rezzza\MocoBehatExtension\MocoExtension:
             json_file: features/fixtures.yml
+            hostname: 127.0.0.1
+            port: 9997
     suites:
         default:
             contexts:
-                - Rezzza\MocoBehatExtension\MocoContext:
-                    mocoIp: 127.0.0.1
-                    mocoPort: 9997
+                - Rezzza\MocoBehatExtension\MocoContext
 ```
 
-Then you just need to add `MocoWriter` as an argument of your context.
+Then you just need to add `MocoWriter` as an argument of your context and tag your scenario with `@moco`
 
 [See tests](features) for more details

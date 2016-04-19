@@ -10,6 +10,8 @@ Feature: Check moco
                 extensions:
                     Rezzza\MocoBehatExtension\MocoExtension:
                         json_file: features/fixtures.yml
+                        hostname: 127.0.0.1
+                        port: 9997
                     Rezzza\RestApiBehatExtension\Extension:
                         rest:
                             base_url: http://127.0.0.1:9997
@@ -17,10 +19,8 @@ Feature: Check moco
                 suites:
                     default:
                         contexts:
-                            - Rezzza\RestApiBehatExtension\RestApiContext:
-                            - Rezzza\MocoBehatExtension\MocoContext:
-                                mocoIp: 127.0.0.1
-                                mocoPort: 9997
+                            - Rezzza\RestApiBehatExtension\RestApiContext
+                            - Rezzza\MocoBehatExtension\MocoContext
             """
         And a file named "features/call_moco.feature" with:
             """
