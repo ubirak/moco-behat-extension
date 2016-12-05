@@ -43,4 +43,25 @@ class MocoWriter extends atoum
                     ->once()
         ;
     }
+
+    public function test_it_should_write_events_if_present()
+    {
+        $this
+            ->given(
+                $this->newTestedInstance('fixtures.json', '127.0.0.1', '8888'),
+                $this->function->file_put_contents = true,
+                $this->function->stream_socket_client = true,
+                $this->testedInstance->mockHttpCall(['uri' => '/coucou'], ['status' => '404'], ['complete' => 'ok'])
+            )
+            ->when(
+                $this->testedInstance->writeForMoco()
+            )
+            ->then
+                ->function('file_put_contents')
+                    ->wasCalledWithArguments('fixtures.json', json_encode([
+                        ['request' => ['uri' => '/coucou'], 'response' => ['status' => '404'], 'on' => ['complete' => 'ok']]
+                    ]))
+                    ->once()
+        ;
+    }
 }
