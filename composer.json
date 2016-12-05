@@ -19,7 +19,8 @@
     },
     "require-dev": {
         "rezzza/rest-api-behat-extension": "^3.1",
-        "symfony/process": "^3.0"
+        "symfony/process": "^3.0",
+        "atoum/atoum": "^2.8"
     },
     "bin": ["bin/install-moco.sh"]
 }
