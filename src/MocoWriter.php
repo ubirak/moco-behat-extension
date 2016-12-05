@@ -19,12 +19,18 @@ class MocoWriter
         $this->port = $port;
     }
 
-    public function mockHttpCall(array $matchedRequest, array $mockedResponse)
+    public function mockHttpCall(array $matchedRequest, array $mockedResponse, array $events = [])
     {
-        $this->payload[] = [
+        $entry = [
             "request" => $matchedRequest,
             "response" => $mockedResponse
         ];
+
+        if (0 < count($events)) {
+            $entry['on'] = $events;
+        }
+
+        $this->payload[] = $entry;
     }
 
     public function writeForMoco()
