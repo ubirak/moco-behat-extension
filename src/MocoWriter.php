@@ -22,8 +22,8 @@ class MocoWriter
     public function mockHttpCall(array $matchedRequest, array $mockedResponse, array $events = [])
     {
         $entry = [
-            "request" => $matchedRequest,
-            "response" => $mockedResponse
+            'request' => $matchedRequest,
+            'response' => $mockedResponse,
         ];
 
         if (0 < count($events)) {
@@ -33,35 +33,47 @@ class MocoWriter
         $this->payload[] = $entry;
     }
 
-    public function writeForMoco()
+    public function writeForMoco($maxAttempt = 10, $tempoInMs = 200)
     {
         file_put_contents($this->jsonFile, json_encode($this->payload));
         // We need to wait for moco detecting the fixtures file changed
         // If not, we can perform a request on old configFile
         sleep(1);
-        $this->waitForMoco();
+        $this->waitForMoco($maxAttempt, $tempoInMs);
     }
 
-    public function reset()
+    public function reset($maxAttempt = 10, $tempoInMs = 200)
     {
         $this->payload = [];
         // To avoid false positive by having the next scenario using moco response of the previous scenario
-        $this->writeForMoco();
+        $this->writeForMoco($maxAttempt, $tempoInMs);
     }
 
-    private function waitForMoco()
+    private function waitForMoco($maxAttempt, $tempoInMs)
     {
         $attempts = 0;
-        $max = 10;
         $ip = gethostbyname($this->hostname);
-        while (false === @stream_socket_client('tcp://'.$ip.':'.$this->port, $errno, $errstr, 5) && ($attempts < $max)) {
-            usleep(200000); // 200ms
-            $attempts++;
+        $up = false;
+        while ($attempts < $maxAttempt && false === $up) {
+            $socket = @stream_socket_client('tcp://'.$ip.':'.$this->port, $errno, $errstr, 5);
+
+            if (false === $socket) {
+                usleep($tempoInMs * 1000);
+                ++$attempts;
+            } else {
+                $up = true;
+                @fclose($socket);
+            }
         }
 
-        if ($max <= $attempts) {
+        if ($maxAttempt <= $attempts) {
             throw new \Exception(
-                sprintf('You should run moco by "bin/moco start -p %s -c %s"', $this->port, $this->jsonFile)
+                sprintf('Cannot connect to moco on %s : %s. Ensure to run moco with "bin/moco start -p %s -c %s"',
+                    $ip,
+                    $errstr,
+                    $this->port,
+                    $this->jsonFile
+                )
             );
         }
     }
