@@ -36,5 +36,5 @@ Feature: Check moco
         When I run behat "-f progress features/call_moco.feature"
         Then it should fail with:
             """
-            You should run moco by "bin/moco start -p 9997 -c features/fixtures.yml"
+            Cannot connect to moco on 127.0.0.1 : Connection refused. Ensure to run moco with "bin/moco start -p 9997 -c features/fixtures.yml"
             """
