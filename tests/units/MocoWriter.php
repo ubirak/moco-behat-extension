@@ -1,6 +1,6 @@
 <?php
 
-namespace Rezzza\MocoBehatExtension\Tests\Units;
+namespace Ubirak\MocoBehatExtension\Tests\Units;
 
 use mageekguy\atoum;
 

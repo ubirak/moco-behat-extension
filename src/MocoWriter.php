@@ -1,6 +1,6 @@
 <?php
 
-namespace Rezzza\MocoBehatExtension;
+namespace Ubirak\MocoBehatExtension;
 
 class MocoWriter
 {

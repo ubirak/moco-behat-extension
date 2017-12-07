@@ -8,19 +8,19 @@ Feature: Check moco
             """
             default:
                 extensions:
-                    Rezzza\MocoBehatExtension\MocoExtension:
+                    Ubirak\MocoBehatExtension\MocoExtension:
                         json_file: features/fixtures.yml
                         hostname: 127.0.0.1
                         port: 9997
-                    Rezzza\RestApiBehatExtension\Extension:
+                    Ubirak\RestApiBehatExtension\Extension:
                         rest:
                             base_url: http://127.0.0.1:9997
-                            adaptor_name: curl
+                            store_response: true
                 suites:
                     default:
                         contexts:
-                            - Rezzza\RestApiBehatExtension\RestApiContext
-                            - Rezzza\MocoBehatExtension\MocoContext
+                            - Ubirak\RestApiBehatExtension\RestApiContext
+                            - Ubirak\MocoBehatExtension\MocoContext
             """
         And a file named "features/call_moco.feature" with:
             """
