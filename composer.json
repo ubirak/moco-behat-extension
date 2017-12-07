@@ -1,13 +1,13 @@
 {
-    "name": "rezzza/moco-behat-extension",
+    "name": "ubirak/moco-behat-extension",
     "description": "Helper to use moco with behat",
     "type": "behat-extension",
     "license": "MIT",
-    "homepage": "https://github.com/rezzza/moco-behat-extension",
+    "homepage": "https://github.com/ubirak/moco-behat-extension",
     "authors": [
         {
-            "name": "RezZza Team",
-            "email": "dev@verylastroom.com"
+            "name": "Ubirak team",
+            "email": "team@ubirak.org"
         }
     ],
     "autoload": {
