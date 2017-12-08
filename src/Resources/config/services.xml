@@ -3,14 +3,14 @@
            xmlns="http://symfony.com/schema/dic/services"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
-        <service id="rezzza.moco.moco_writer" class="Rezzza\MocoBehatExtension\MocoWriter" public="false">
-            <argument>%rezzza.moco.json_file%</argument>
-            <argument>%rezzza.moco.hostname%</argument>
-            <argument>%rezzza.moco.port%</argument>
+        <service id="ubirak.moco.moco_writer" class="Ubirak\MocoBehatExtension\MocoWriter" public="false">
+            <argument>%ubirak.moco.json_file%</argument>
+            <argument>%ubirak.moco.hostname%</argument>
+            <argument>%ubirak.moco.port%</argument>
         </service>
 
-        <service id="rezzza.moco.moco_writer_resolver" class="Rezzza\MocoBehatExtension\MocoWriterResolver" public="false">
-            <argument type="service" id="rezzza.moco.moco_writer" />
+        <service id="ubirak.moco.moco_writer_resolver" class="Ubirak\MocoBehatExtension\MocoWriterResolver" public="false">
+            <argument type="service" id="ubirak.moco.moco_writer" />
             <tag name="context.argument_resolver" />
         </service>
     </services>

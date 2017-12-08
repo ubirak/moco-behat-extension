@@ -1,6 +1,6 @@
 <?php
 
-namespace Rezzza\MocoBehatExtension;
+namespace Ubirak\MocoBehatExtension;
 
 use Behat\Testwork\ServiceContainer\Extension;
 use Behat\Testwork\ServiceContainer\ExtensionManager;
@@ -13,9 +13,9 @@ class MocoExtension implements Extension
 {
     public function load(ContainerBuilder $container, array $config)
     {
-        $container->setParameter('rezzza.moco.json_file', $config['json_file']);
-        $container->setParameter('rezzza.moco.port', $config['port']);
-        $container->setParameter('rezzza.moco.hostname', $config['hostname']);
+        $container->setParameter('ubirak.moco.json_file', $config['json_file']);
+        $container->setParameter('ubirak.moco.port', $config['port']);
+        $container->setParameter('ubirak.moco.hostname', $config['hostname']);
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/Resources/config'));
         $loader->load('services.xml');
     }

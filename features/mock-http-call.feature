@@ -8,26 +8,26 @@ Feature: Mock HTTP call
             """
             default:
                 extensions:
-                    Rezzza\MocoBehatExtension\MocoExtension:
+                    Ubirak\MocoBehatExtension\MocoExtension:
                         json_file: features/fixtures.yml
                         hostname: 127.0.0.1
                         port: 9999
-                    Rezzza\RestApiBehatExtension\Extension:
+                    Ubirak\RestApiBehatExtension\Extension:
                         rest:
                             base_url: http://127.0.0.1:9999
-                            adaptor_name: curl
+                            store_response: true
                 suites:
                     default:
                         contexts:
                             - FeatureContext
-                            - Rezzza\RestApiBehatExtension\RestApiContext
-                            - Rezzza\MocoBehatExtension\MocoContext
+                            - Ubirak\RestApiBehatExtension\RestApiContext
+                            - Ubirak\MocoBehatExtension\MocoContext
             """
         And a file named "features/bootstrap/FeatureContext.php" with:
             """
             <?php
             use Behat\Behat\Context\Context;
-            use Rezzza\MocoBehatExtension\MocoWriter;
+            use Ubirak\MocoBehatExtension\MocoWriter;
 
             class FeatureContext implements Context
             {
