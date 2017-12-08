@@ -6,6 +6,10 @@
 
 Here is a small extension to make its usage more friendly.
 
+## Warning
+
+Vendor namespace changed from `Rezzza` to `Ubirak` in `2.0`
+
 ## Usage
 
 ```yml
