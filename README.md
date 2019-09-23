@@ -16,7 +16,7 @@ Vendor namespace changed from `Rezzza` to `Ubirak` in `2.0`
 default:
     extensions:
         Ubirak\MocoBehatExtension\MocoExtension:
-            json_file: features/fixtures.yml
+            json_file: features/fixtures.json
             hostname: 127.0.0.1
             port: 9997
     suites:
